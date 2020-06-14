@@ -7,7 +7,35 @@ using Test_Project_Requirements.Models;
 namespace Test_Project_Requirements.GeneralСlasses
 {
     public class MathGroup
-    {
+    { 
+        internal static IEnumerable<Sales> GetSales(DateTime startDateTime, DateTime endDateTime, DateGroupType group, DBConnection.ApplicationContext db)
+        {
+            IEnumerable<Sales> GroupSales;
+            switch (group)
+            {
+                case DateGroupType.Week:
+                    {
+                        GroupSales = MathGroup.GetHistorySalesWeek(db.HistorySales.Where(x => x.DateSale >= startDateTime).Where(x => x.DateSale <= endDateTime).OrderBy(x => x.DateSale).ToList());
+                        break;
+                    }
+                case DateGroupType.Month:
+                    {
+                        GroupSales = MathGroup.GetHistorySalesMonth(db.HistorySales.Where(x => x.DateSale >= startDateTime).Where(x => x.DateSale <= endDateTime).OrderBy(x => x.DateSale).ToList());
+                        break;
+                    }
+                case DateGroupType.Quarter:
+                    {
+                        GroupSales = MathGroup.GetHistorySalesQuarter(db.HistorySales.Where(x => x.DateSale >= startDateTime).Where(x => x.DateSale <= endDateTime).OrderBy(x => x.DateSale).ToList());
+                        break;
+                    }
+                default:
+                    {
+                        GroupSales = MathGroup.GetHistorySalesDay(db.HistorySales.Where(x => x.DateSale >= startDateTime).Where(x => x.DateSale <= endDateTime).OrderBy(x => x.DateSale).ToList());
+                        break;
+                    }
+            }
+            return GroupSales;
+        }
         #region Day
         internal static IEnumerable<Sales> GetHistorySalesDay(List<HistorySale> historySales)
         {
@@ -73,10 +101,7 @@ namespace Test_Project_Requirements.GeneralСlasses
             return SalesList;
         }
 
-        internal static IEnumerable<Sales> GetSales(DateTime startDateTime, DateTime endDateTime, DateGroupType group)
-        {
-            throw new NotImplementedException();
-        }
+       
         #endregion
 
         #region Quarter

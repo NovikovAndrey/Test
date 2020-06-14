@@ -31,37 +31,13 @@ namespace Test_Project_Requirements.Controllers
             string EndDT = null,
             DateGroupType group = DateGroupType.Day)
         {
-            IEnumerable<Sales> Group;
             if (StartDT == null) { StartDateTime = DateTime.MinValue; }
             else { DateTime.TryParseExact(StartDT, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out StartDateTime); }
 
             if (EndDT == null) { EndDateTime = DateTime.MaxValue; }
             else { DateTime.TryParseExact(EndDT, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out EndDateTime); }
 
-            switch (group)
-            {
-                case DateGroupType.Week:
-                    {
-                        Group = MathGroup.GetHistorySalesWeek(db.HistorySales.Where(x => x.DateSale >= StartDateTime).Where(x => x.DateSale <= EndDateTime).OrderBy(x => x.DateSale).ToList());
-                        break;
-                    }
-                case DateGroupType.Month:
-                    {
-                        Group = MathGroup.GetHistorySalesMonth(db.HistorySales.Where(x => x.DateSale >= StartDateTime).Where(x => x.DateSale <= EndDateTime).OrderBy(x => x.DateSale).ToList());
-                        break;
-                    }
-                case DateGroupType.Quarter:
-                    {
-                        Group = MathGroup.GetHistorySalesQuarter(db.HistorySales.Where(x => x.DateSale >= StartDateTime).Where(x => x.DateSale <= EndDateTime).OrderBy(x => x.DateSale).ToList());
-                        break;
-                    }
-                default:
-                    {
-                        Group = MathGroup.GetHistorySalesDay(db.HistorySales.Where(x => x.DateSale >= StartDateTime).Where(x => x.DateSale <= EndDateTime).OrderBy(x => x.DateSale).ToList());
-                        break;
-                    }
-            }
-            return MathGroup.GetSales(StartDateTime, EndDateTime, group);
+            return MathGroup.GetSales(StartDateTime, EndDateTime, group, db);
         }
 
 
