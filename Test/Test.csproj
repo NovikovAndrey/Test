@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,10 @@
     <TypeScriptCompile Include="ClientApp\src\app\comp1\comp1.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\comp2\comp2.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\data.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

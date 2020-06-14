@@ -19,6 +19,7 @@ export class Comp2Component implements OnInit {
   }
 
   myMethod() {
+    this.log.length = 0;
     this.log.push(new Date());
   }
 
