@@ -1,6 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-//import { SaleComponent } from '../Sales/sales.component';
 
 @Component({
   selector: 'ngbd-dropdown',
@@ -8,8 +7,6 @@ import { DataService } from '../data.service';
 })
 export class NgbdDropdown implements OnInit{
   names: string[];
-  //comp: SaleComponent;
-  count: string;
 
   constructor(private dataService: DataService) { }
 
@@ -21,12 +18,10 @@ export class NgbdDropdown implements OnInit{
     this.dataService.getNames()
       .subscribe((data: string[]) => {
         this.names = data;
-      }
-      )
+      })
   };
 
   public GetGroup(increased: string) {
-    //this.dataService.triggerOnMyButton();
     this.dataService.setGroupPeriod(increased);
   };
 }

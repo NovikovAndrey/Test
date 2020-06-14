@@ -61,7 +61,7 @@ namespace Test_Project_Requirements.Controllers
                         break;
                     }
             }
-            return Group;
+            return MathGroup.GetSales(StartDateTime, EndDateTime, group);
         }
 
 

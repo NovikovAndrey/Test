@@ -2,33 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { DataService } from '../data.service';
 import { SaleModel } from '../Models/SaleModel';
-//import { NgbdDropdown } from '../DropBox/dropdown.component';
 
 @Component({
   selector: 'app-Highcharts',
   templateUrl: `./sales.component.html`,
-  //providers: [DataService]
 })
 
 export class SaleComponent implements OnInit{
   public log = [];
-
-  //
   sales: SaleModel[];
-  title = 'app';
+  title = '';
   Y1 = 'Sum (In thousands)';
   ColumnLegend = 'Sum $/K';
   LineLegend = 'Sales';
   XArgs: string[];
   Column: number[];
   Line: number[];
-  //
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    //this.loadSales();
-    this.dataService.trigger$.subscribe(() => this.myMethod()); 
+    this.loadSales();
+    //this.dataService.trigger$.subscribe(() => this.myMethod());
+    this.dataService.trigger$.subscribe(() => this.loadSales()); 
   }
 
   public loadSales() {
@@ -97,9 +93,5 @@ export class SaleComponent implements OnInit{
       });
     });
      
-  }
-  myMethod() {
-
-    this.log.push(new Date());
   }
 }

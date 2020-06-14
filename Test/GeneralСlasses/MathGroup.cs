@@ -72,6 +72,11 @@ namespace Test_Project_Requirements.GeneralСlasses
             }
             return SalesList;
         }
+
+        internal static IEnumerable<Sales> GetSales(DateTime startDateTime, DateTime endDateTime, DateGroupType group)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Quarter

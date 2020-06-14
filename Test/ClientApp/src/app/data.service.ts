@@ -30,26 +30,22 @@ export class DataService {
   setGroupPeriod(Group: string) {
     this.GroupPeriod = Group;
     this.triggerOnMyButton();
-    //this.getSales();
   }
   setTimePeriodAll(DT1: string, DT2: string) {
     this.DT1 = DT1;
     this.DT2 = DT2;
-    this.getSales();
+    this.triggerOnMyButton();
   }
   setTimePeriodStart(DT1: string) {
     this.DT1 = DT1;
-    this.getSales();
+    this.triggerOnMyButton();
   }
   setTimePeriodEnd(DT2: string) {
     this.DT2 = DT2;
-    this.getSales();
+    this.triggerOnMyButton();
   }
 
   getSales() {
-    //this.XArgs = new Array<string>();
-    //this.Column = new Array<number>();
-    //this.Line = new Array<number>();
     return this.http.get(this.urlSales + '/group=' + this.GroupPeriod + '&StartDT=' + this.DT1 + '&EndDT=' + this.DT2);
   }
 }

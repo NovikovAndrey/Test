@@ -28,6 +28,7 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
 @Component({
   selector: 'ngbd-datepicker',
   templateUrl: './datepicker.component.html',
+  styleUrls: ['./datepicker.component.css'],
   providers: [
     { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter }
   ]
@@ -48,7 +49,6 @@ export class NgbdDatepickerAdapter {
   dateSelectDPFirst(DT1:any) {
     this.DPFirst = DT1;
     this.ValidPeriod();
-    //ValidPeriod(this.DPFirst, this.DPSecond);
   }
 
   dateSelectDPSecond(DT2: any) {
