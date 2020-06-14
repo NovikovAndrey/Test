@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { SaleHighchartsComponent } from './Sales/sales.component';
+import { SaleComponent } from './Sales/sales.component';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { NgbdDropdown } from './DropBox/dropdown.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -43,7 +43,7 @@ import { Comp2Component } from './comp2/comp2.component';
   declarations: [
     AppComponent,
     HighchartsChartComponent,
-    SaleHighchartsComponent,
+    SaleComponent,
     NgbdDatepickerAdapter,
     NgbdDropdown,
     Comp2Component
