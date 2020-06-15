@@ -1,13 +1,18 @@
 
   <div ngbDropdown class="d-inline-block">
     Time period
-    <button class="btn btn-outline-primary" id="dropdown" style="border-color:black; color:black"
-            ngbDropdownToggle>
+    <button class="btn btn-outline-primary"
+      id="dropdown"
+      style="border-color:black;
+        color:black"
+    ngbDropdownToggle>
       {{ selectedValue.value || "Day" }}
     </button>
     <div ngbDropdownMenu aria-labelledby="dropdown" #selectedValue>
       <div *ngFor="let name of names;">
-        <button ngbDropdownItem id="option" on-click="selectedValue.value=name" (click)="GetGroup(selectedValue.value)">
+        <button ngbDropdownItem id="option"
+          on-click="selectedValue.value=name"
+          (click)="GetGroup(selectedValue.value)">
           {{name}}
         </button>
       </div>
