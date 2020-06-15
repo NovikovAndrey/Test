@@ -11,10 +11,14 @@ span {
   vertical-align: middle;
   line-height: normal;
 }
-button {
+.btn {
   /*background-image: url(calendar.jpg);*/
-  height: 50px;
-  width: 50px;
-  background:no-repeat url('calendar.jpg');
-
+  background: url('calendar.jpg') no-repeat scroll 0 0 transparent;
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+  height: 20px;
+  padding: 2px;
+  width: 75px;
+ /* background: no-repeat url('calendar.jpg');*/
 }

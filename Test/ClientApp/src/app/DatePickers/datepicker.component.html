@@ -2,13 +2,13 @@
   
     <form class="form-inline"><span>
         Start Date:
-        <input class="form-control" placeholder="mm/dd/yyyy"
-               name="d1" #c1="ngModel" [(ngModel)]="model1" (dateSelect)="dateSelectDPFirst(model1)" ngbDatepicker #d1="ngbDatepicker" max="model2">
-        <button class="btn btn-outline-first calendar" (click)="d1.toggle()" type="button"></button>
+        <input class="form-control" placeholder="mm/dd/yyyy" autocomplete="off"
+               name="d1" #c1="ngModel" [(ngModel)]="model1" (dateSelect)="dateSelectDPFirst(model1)" ngbDatepicker #d1="ngbDatepicker" max="model2" (click)="d1.toggle()">
+        <!--<button class="btn btn-outline-first calendar"  type="button"></button>-->
         End Date:
-        <input class="form-control" placeholder="mm/dd/yyyy"
+        <input class="form-control" placeholder="mm/dd/yyyy" autocomplete="off" (click)="d2.toggle()"
                name="d2" #c2="ngModel" [(ngModel)]="model2" minDate="model1" (dateSelect)="dateSelectDPSecond(model2)" ngbDatepicker #d2="ngbDatepicker">
-        <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+        <!--<button class="btn btn-outline-secondary calendar"  type="button"></button>-->
       </span>
     </form>
 </div>
