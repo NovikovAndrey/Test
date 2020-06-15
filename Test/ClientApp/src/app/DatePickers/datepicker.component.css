@@ -13,7 +13,7 @@ span {
 }
 .btn {
   /*background-image: url(calendar.jpg);*/
-  background: url('calendar.jpg') no-repeat scroll 0 0 transparent;
+  /*background: url('calendar.jpg') no-repeat scroll 0 0 transparent;*/
   color: #000000;
   cursor: pointer;
   font-weight: bold;
