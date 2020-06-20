@@ -8,7 +8,7 @@ namespace Test_Project_Requirements.GeneralСlasses
 {
     public class MathGroup
     { 
-        internal static IEnumerable<Sales> GetSales(DateTime startDateTime, DateTime endDateTime, DateGroupType group, DBConnection.ApplicationContext db)
+        public static IEnumerable<Sales> GetSales(DateTime startDateTime, DateTime endDateTime, DateGroupType group, DBConnection.ApplicationContext db)
         {
             IEnumerable<Sales> GroupSales;
             switch (group)
@@ -37,7 +37,7 @@ namespace Test_Project_Requirements.GeneralСlasses
             return GroupSales;
         }
         #region Day
-        internal static IEnumerable<Sales> GetHistorySalesDay(List<HistorySale> historySales)
+        private static IEnumerable<Sales> GetHistorySalesDay(List<HistorySale> historySales)
         {
             var SalesList = new List<Sales>();
             foreach (var t in historySales.GroupBy(x => x.DateSale.Date.AddDays(x.DateSale.Day)))
@@ -59,7 +59,7 @@ namespace Test_Project_Requirements.GeneralСlasses
         #endregion
 
         #region Week
-        internal static IEnumerable<Sales> GetHistorySalesWeek(List<HistorySale> historySales)
+        private static IEnumerable<Sales> GetHistorySalesWeek(List<HistorySale> historySales)
         {
             var SalesList = new List<Sales>();
             foreach (var t in historySales.GroupBy(x => new { x.DateSale.Year, Week = 1 + (x.DateSale.DayOfYear - 1) / 7 }))
@@ -81,7 +81,7 @@ namespace Test_Project_Requirements.GeneralСlasses
         #endregion
 
         #region Month
-        internal static IEnumerable<Sales> GetHistorySalesMonth(List<HistorySale> historySales)
+        private static IEnumerable<Sales> GetHistorySalesMonth(List<HistorySale> historySales)
         {
             var SalesList = new List<Sales>();
             foreach (var t in historySales.GroupBy(x => new { x.DateSale.Year, x.DateSale.Month }))
@@ -99,13 +99,11 @@ namespace Test_Project_Requirements.GeneralСlasses
                 SalesList.Add(new Sales(DateSalesTemp, SalesTemp, AmountDollarsTemp));
             }
             return SalesList;
-        }
-
-       
+        }       
         #endregion
 
         #region Quarter
-        internal static IEnumerable<Sales> GetHistorySalesQuarter(List<HistorySale> historySales)
+        private static IEnumerable<Sales> GetHistorySalesQuarter(List<HistorySale> historySales)
         {
             var SalesList = new List<Sales>();
             foreach (var t in historySales.GroupBy(x => new { x.DateSale.Year, Quarter = 1 + (x.DateSale.Month - 1) / 3 }))
