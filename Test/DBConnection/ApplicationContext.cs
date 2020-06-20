@@ -13,6 +13,10 @@ namespace Test_Project_Requirements.DBConnection
         {
 
         }
-        public DbSet<HistorySale> HistorySales { get; set; }
+        public ApplicationContext()
+        {
+
+        }
+        public virtual DbSet<HistorySale> HistorySales { get; set; }
     }
 }
