@@ -69,7 +69,7 @@ export class SaleComponent implements OnInit{
         legend: {
           layout: 'vertical',
           align: 'right',
-          x: -100,
+          x: -150,
           verticalAlign: 'top',
           y: 0,
           floating: true
