@@ -10,7 +10,7 @@
           [(ngModel)]="model1"
           (dateSelect)="dateSelectDPFirst(model1)"
           ngbDatepicker #d1="ngbDatepicker"
-          (click)="d1.toggle()">
+          (click)="d1.toggle()" readonly>
         End Date:
         <input class="form-control"
           placeholder="mm/dd/yyyy"
@@ -21,7 +21,7 @@
           [(ngModel)]="model2"
           minDate="model1"
           (dateSelect)="dateSelectDPSecond(model2)"
-          ngbDatepicker #d2="ngbDatepicker">
+          ngbDatepicker #d2="ngbDatepicker" readonly>
       </span>
     </form>
 </div>
