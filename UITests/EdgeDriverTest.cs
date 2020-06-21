@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -85,9 +86,9 @@ namespace UITests
             startDate = driver.FindElement(By.XPath("//input[1]"));
             endDate = driver.FindElement(By.XPath("//input[2]"));
             string s1 = startDate.GetProperty("value");
-            string s2 = endDate.Text;
-            bool res1 = startDate.Equals($"{startMonth}/{startDay}/{startYear}");
-            bool res2 = endDate.Text.Equals($"{endMonth}/{endDay}/{endYear}");
+            string s2 = endDate.GetProperty("value");
+            bool res1 = s1.Equals($"{DateTime.ParseExact(startMonth, "MMM", System.Globalization.CultureInfo.CurrentCulture).Month}/{startDay}/{startYear}");
+            bool res2 = s2.Equals($"{DateTime.ParseExact(endMonth, "MMM", System.Globalization.CultureInfo.CurrentCulture).Month}/{endDay}/{endYear}");
 
             Assert.AreEqual(true,res1 && res2);
         }
@@ -95,7 +96,7 @@ namespace UITests
         [TearDown]
         public void EdgeDriverCleanup()
         {
-            // driver.Quit();
+            driver.Quit();
         }
     }
 }
