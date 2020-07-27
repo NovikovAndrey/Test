@@ -5,23 +5,22 @@
         <input class="form-control"
           placeholder="mm/dd/yyyy"
           autocomplete="off"
-          name="d1"
+          name="dtStart"
           #c1="ngModel"
-          [(ngModel)]="model1"
-          (dateSelect)="dateSelectDPFirst(model1)"
-          ngbDatepicker #d1="ngbDatepicker"
-          (click)="d1.toggle()" readonly>
+          [(ngModel)]="PeriodStartDate"
+          (dateSelect)="dateSelectDPFirst(PeriodStartDate)"
+          ngbDatepicker #dtStart="ngbDatepicker"
+          (click)="dtStart.toggle()" readonly>
         End Date:
         <input class="form-control"
           placeholder="mm/dd/yyyy"
           autocomplete="off"
-          (click)="d2.toggle()"
-          name="d2"
+          (click)="dtEnd.toggle()"
+          name="dtEnd"
           #c2="ngModel"
-          [(ngModel)]="model2"
-          minDate="model1"
-          (dateSelect)="dateSelectDPSecond(model2)"
-          ngbDatepicker #d2="ngbDatepicker" readonly>
+          [(ngModel)]="PeriodEndDate"
+          (dateSelect)="dateSelectDPSecond(PeriodEndDate)"
+          ngbDatepicker #dtEnd="ngbDatepicker" readonly>
       </span>
     </form>
 </div>

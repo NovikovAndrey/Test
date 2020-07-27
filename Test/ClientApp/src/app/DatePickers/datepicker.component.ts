@@ -35,8 +35,8 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
 })
 
 export class NgbdDatepickerAdapter {
-  model2: string;
-  model1: string;
+  PeriodEndDate: string;
+  PeriodStartDate: string;
   DPFirst: NgbDateStruct;
   DPSecond: NgbDateStruct;
   readonly DELIMITER = '-';
@@ -90,11 +90,11 @@ export class NgbdDatepickerAdapter {
   }
   Replace() {
     var DPTemp = this.DPFirst;
-    var modelTemp = this.model1;
+    var modelTemp = this.PeriodStartDate;
     this.DPFirst = this.DPSecond;
-    this.model1 = this.model2;
+    this.PeriodStartDate = this.PeriodEndDate;
     this.DPSecond = DPTemp;
-    this.model2 = modelTemp;
+    this.PeriodEndDate = modelTemp;
     this.ValidPeriod();
   }
 }
